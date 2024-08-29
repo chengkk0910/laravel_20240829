@@ -32,7 +32,7 @@ class StudentController extends Controller
 
         foreach ($data as $key => $value) {
             $rankText = 1;
-            if($value['id'] > 2){
+            if ($value['id'] > 2) {
                 $rankText = 2;
             }
             $data[$key]['rank'] = $rankText;
@@ -58,8 +58,17 @@ class StudentController extends Controller
     {
         // dd('StudentController store ok');
         // $data = $request->all();
-        $data = $request->except('_token');
-        dd($data);
+        // $data = $request->except('_token');
+        // dd($data);
+
+        $student = new Student();
+
+        $student->name = $request->name;
+        $student->mobile = $request->mobile;
+
+        $student->save();
+
+        return redirect()->route('students.index');
     }
 
     /**
