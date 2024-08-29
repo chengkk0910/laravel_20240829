@@ -7,11 +7,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-    <style>
-        .red {
-            /* color: red !important; */
-        }
-    </style>
 
 </head>
 
@@ -20,6 +15,9 @@
     <div class="container mt-3">
         <h2>Bordered Table</h2>
         <p>The .table-bordered class adds borders on all sides of the table and the cells:</p>
+        <div class="text-end">
+            <a class="btn btn-success mb-3" href="{{ route('students.create') }}">add</a>
+        </div>
         <table class="table table-bordered">
             <thead>
                 <tr>

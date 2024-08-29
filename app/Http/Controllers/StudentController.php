@@ -16,7 +16,6 @@ class StudentController extends Controller
      */
     public function index()
     {
-
         // foreach (Flight::all() as $flight) {
         //     echo $flight->name;
         // }
@@ -48,7 +47,8 @@ class StudentController extends Controller
      */
     public function create()
     {
-        //
+        // dd('create controller ok');
+        return view('student.create');
     }
 
     /**
@@ -56,7 +56,10 @@ class StudentController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // dd('StudentController store ok');
+        // $data = $request->all();
+        $data = $request->except('_token');
+        dd($data);
     }
 
     /**
