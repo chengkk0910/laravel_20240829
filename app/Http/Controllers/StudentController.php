@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Student;
+use App\Models\Phone;
 // use Illuminate\Support\Facades\DB;
 
 
@@ -16,6 +17,8 @@ class StudentController extends Controller
      */
     public function index()
     {
+
+
         // foreach (Flight::all() as $flight) {
         //     echo $flight->name;
         // }
@@ -32,7 +35,7 @@ class StudentController extends Controller
         // dd($data);
         // $data = Student::find(1)->phoneRelation->phone;
         // $data = Student::find(1)->phoneRelation->student_id;
-        dd($data);
+        // dd($data);
 
         foreach ($data as $key => $value) {
             $rankText = 1;
@@ -62,14 +65,26 @@ class StudentController extends Controller
     {
         // dd('StudentController store ok');
         // $data = $request->all();
-        // $data = $request->except('_token');
+        $data = $request->except('_token');
         // dd($data);
 
+        // Student
         $student = new Student();
-
         $student->name = $request->name;
         $student->mobile = $request->mobile;
+        $student->save();
+        // dd($student);
 
+
+        // $student_id = Student::orderBy('id', 'desc')->fisrt();
+        // dd($student_id);
+
+
+        // Phone
+        $phone = new Phone();
+        $phone->student_id = $student->id;
+        $phone->phone = $request->phone;
+        $phone->save();
 
         // $obj['id']
         // $obj->id
@@ -80,7 +95,7 @@ class StudentController extends Controller
         // $obj.id()
 
 
-        $student->save();
+
 
         return redirect()->route('students.index');
     }
@@ -116,10 +131,20 @@ class StudentController extends Controller
         $input = $request->except('_token', '_method');
         // dd($input);
 
+        // 主表 student
         $data = Student::where('id', $id)->first();
         $data->name = $input['name'];
         $data->mobile = $input['mobile'];
         $data->save();
+
+        // 子表 phone
+        $data = Phone::where('student_id', $id)->delete();
+
+        // Phone
+        $phone = new Phone();
+        $phone->student_id = $id;
+        $phone->phone = $request->phone;
+        $phone->save();
 
         return redirect()->route('students.index');
     }
@@ -129,8 +154,8 @@ class StudentController extends Controller
      */
     public function destroy(string $id)
     {
-        $data = Student::where('id', $id)->first();
-        $data->delete();
+        Student::where('id', $id)->delete();
+        Phone::where('student_id', $id)->delete();
         return redirect()->route('students.index');
     }
 }

@@ -24,6 +24,7 @@
                     <th>id</th>
                     <th>name</th>
                     <th>mobile</th>
+                    <th>phone</th>
                     <th>rank</th>
                     <th>
                         oprate
@@ -42,6 +43,7 @@
                         <td>{{ $value['id'] }}</td>
                         <td>{{ $value['name'] }}</td>
                         <td>{{ $value['mobile'] }}</td>
+                        <td>{{ $value->phoneRelation->phone }}</td>
                         <td class="my-rank">{{ $value['rank'] }}</td>
                         <td>
                             {{-- 方法一 --}}
