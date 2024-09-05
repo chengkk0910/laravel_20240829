@@ -13,8 +13,13 @@
 
     <div class="container mt-3">
         <h2>student edit form id = {{ $data['id'] }}</h2>
-        <form action="" method="post">
+        <form action="{{ route('students.update', ['student' => $data['id']]) }}" method="post">
+
+            {{-- _hidden --}}
             @csrf
+            {{-- _method --}}
+            @method('put')
+            
             {{-- csrf input hidden _token --}}
             <div class="mb-3 mt-3">
                 <label for="name">Name:</label>

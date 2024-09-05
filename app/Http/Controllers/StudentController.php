@@ -107,7 +107,17 @@ class StudentController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        // dd('hello StudentController update action');
+        // $input = $request->all();
+        $input = $request->except('_token', '_method');
+        // dd($input);
+
+        $data = Student::find($id);
+        $data->name = $input['name'];
+        $data->mobile = $input['mobile'];
+        $data->save();
+
+        return redirect()->route('students.index');
     }
 
     /**
