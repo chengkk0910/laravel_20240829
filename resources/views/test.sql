@@ -34,7 +34,7 @@ SELECT
     students.id,
     students.name,
     students.mobile,
-    phones.phone
+    phones.phone123
 
 FROM
     students

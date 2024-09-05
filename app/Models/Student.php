@@ -10,7 +10,7 @@ class Student extends Model
 {
     use HasFactory;
 
-    public function phone(): HasOne
+    public function phoneRelation(): HasOne
     {
         return $this->hasOne(Phone::class);
     }

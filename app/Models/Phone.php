@@ -10,7 +10,7 @@ class Phone extends Model
 {
     use HasFactory;
 
-    public function student(): BelongsTo
+    public function studentRelation(): BelongsTo
     {
         return $this->belongsTo(Student::class);
     }

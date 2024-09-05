@@ -28,8 +28,11 @@ class StudentController extends Controller
         // $data = DB::table('students')
         //     ->get();
 
-        $data = Student::with('phone')->get();
+        $data = Student::with('phoneRelation')->get();
         // dd($data);
+        // $data = Student::find(1)->phoneRelation->phone;
+        // $data = Student::find(1)->phoneRelation->student_id;
+        dd($data);
 
         foreach ($data as $key => $value) {
             $rankText = 1;
