@@ -44,7 +44,15 @@
                         <td>{{ $value['mobile'] }}</td>
                         <td class="my-rank">{{ $value['rank'] }}</td>
                         <td>
-                            <a href="http://" class="btn btn-warning">
+                            {{-- 方法一 --}}
+                            {{-- href="http://localhost/students/1/edit"  --}}
+                            {{-- <a href="http://localhost/students/{{ $value['id'] }}/edit" class="btn btn-warning">
+                                edit
+                            </a> --}}
+
+                            {{-- 方法二 --}}
+                            {{-- route('route.name', ['id' => 1]); --}}
+                            <a href="{{route('students.edit', ['student' => 1]);}}" class="btn btn-warning">
                                 edit
                             </a>
                         </td>
