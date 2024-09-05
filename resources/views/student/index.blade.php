@@ -25,6 +25,10 @@
                     <th>name</th>
                     <th>mobile</th>
                     <th>rank</th>
+                    <th>
+                        oprate
+                    </th>
+
                 </tr>
             </thead>
 
@@ -39,6 +43,11 @@
                         <td>{{ $value['name'] }}</td>
                         <td>{{ $value['mobile'] }}</td>
                         <td class="my-rank">{{ $value['rank'] }}</td>
+                        <td>
+                            <a href="http://" class="btn btn-warning">
+                                edit
+                            </a>
+                        </td>
                     </tr>
                 @endforeach
 

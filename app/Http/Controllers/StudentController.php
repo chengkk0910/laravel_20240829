@@ -66,6 +66,16 @@ class StudentController extends Controller
         $student->name = $request->name;
         $student->mobile = $request->mobile;
 
+
+        // $obj['id']
+        // $obj->id
+        // $obj.id
+
+        // $obj['id']()
+        // $obj->id()
+        // $obj.id()
+
+
         $student->save();
 
         return redirect()->route('students.index');
@@ -84,7 +94,7 @@ class StudentController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        dd('hello StudentController edit');
     }
 
     /**
