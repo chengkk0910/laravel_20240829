@@ -52,7 +52,8 @@
 
                             {{-- 方法二 --}}
                             {{-- route('route.name', ['id' => 1]); --}}
-                            <a href="{{route('students.edit', ['student' => 1]);}}" class="btn btn-warning">
+                            <a href="{{ route('students.edit', ['student' => $value['id']]) }}"
+                                class="btn btn-warning">
                                 edit
                             </a>
                         </td>

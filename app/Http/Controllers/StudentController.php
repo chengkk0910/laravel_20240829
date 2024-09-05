@@ -94,7 +94,11 @@ class StudentController extends Controller
      */
     public function edit(string $id)
     {
-        dd('hello StudentController edit');
+        // dd('hello StudentController edit');
+        // dd($id);
+        // $data = Student::find($id);
+        $data = Student::where('id', $id)->first();
+        dd($data);
     }
 
     /**
