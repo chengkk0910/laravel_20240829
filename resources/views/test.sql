@@ -11,14 +11,31 @@ VALUES
     (NULL, 'bob', '0922-222-222', NULL, NULL),
     (NULL, 'cat', '0933-333-333', NULL, NULL);
 
-
-
 -- $users = DB::table('users')
 --                 ->where('votes', '=', 100)
 --                 ->where('age', '>', 35)
 --                 ->get();
+SELECT
+    *
+FROM
+    students
+WHERE
+    'id' = 10;
 
+SELECT
+    *
+FROM
+    users
+WHERE
+    'votes' = 100
+    AND 'age' > 35;
 
-SELECT * FROM students WHERE 'id' = 10;
+SELECT
+    students.id,
+    students.name,
+    students.mobile,
+    phones.phone
 
-SELECT * FROM users WHERE 'votes' = 100 AND 'age' > 35 ;
+FROM
+    students
+    INNER JOIN phones ON students.id = phones.student_id;
