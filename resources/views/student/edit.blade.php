@@ -12,17 +12,19 @@
 <body>
 
     <div class="container mt-3">
-        <h2>student edit form</h2>
+        <h2>student edit form id = {{ $data['id'] }}</h2>
         <form action="" method="post">
             @csrf
             {{-- csrf input hidden _token --}}
             <div class="mb-3 mt-3">
                 <label for="name">Name:</label>
-                <input type="name" class="form-control" id="name" placeholder="Enter name" name="name">
+                <input type="name" class="form-control" id="name" placeholder="Enter name" name="name"
+                    value="{{ $data['name'] }}">
             </div>
             <div class="mb-3 mt-3">
                 <label for="mobile">Mobile:</label>
-                <input type="mobile" class="form-control" id="mobile" placeholder="Enter mobile" name="mobile">
+                <input type="mobile" class="form-control" id="mobile" placeholder="Enter mobile" name="mobile"
+                    value="{{ $data['mobile'] }}">
             </div>
             <button type="submit" class="btn btn-primary">Submit</button>
         </form>
