@@ -52,10 +52,18 @@
 
                             {{-- 方法二 --}}
                             {{-- route('route.name', ['id' => 1]); --}}
-                            <a href="{{ route('students.edit', ['student' => $value['id']]) }}"
-                                class="btn btn-warning">
-                                edit
-                            </a>
+
+                            <form action="{{ route('students.destroy', ['student' => $value['id']]) }}" method="post">
+                                {{-- edit --}}
+                                <a href="{{ route('students.edit', ['student' => $value['id']]) }}"
+                                    class="btn btn-warning">
+                                    edit
+                                </a>
+                                @csrf
+                                @method('DELETE')
+                                {{-- del --}}
+                                <button type="submit" class="btn btn-danger">Del</button>
+                            </form>
                         </td>
                     </tr>
                 @endforeach

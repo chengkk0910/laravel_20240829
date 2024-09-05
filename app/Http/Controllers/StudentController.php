@@ -112,7 +112,7 @@ class StudentController extends Controller
         $input = $request->except('_token', '_method');
         // dd($input);
 
-        $data = Student::find($id);
+        $data = Student::where('id', $id)->first();
         $data->name = $input['name'];
         $data->mobile = $input['mobile'];
         $data->save();
@@ -125,6 +125,8 @@ class StudentController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $data = Student::where('id', $id)->first();
+        $data->delete();
+        return redirect()->route('students.index');
     }
 }
