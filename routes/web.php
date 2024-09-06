@@ -9,6 +9,7 @@ Route::get('/', function () {
     return redirect()->route('students.index');
 });
 
+Route::get('students_export', [StudentController::class, 'export']);
 
 Route::resource('students', StudentController::class);
 

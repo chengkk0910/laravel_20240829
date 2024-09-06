@@ -6,7 +6,8 @@ use Illuminate\Http\Request;
 use App\Models\Student;
 use App\Models\Phone;
 // use Illuminate\Support\Facades\DB;
-
+use App\Exports\StudentsExport;
+use Maatwebsite\Excel\Facades\Excel;
 
 
 
@@ -157,5 +158,10 @@ class StudentController extends Controller
         Student::where('id', $id)->delete();
         Phone::where('student_id', $id)->delete();
         return redirect()->route('students.index');
+    }
+
+    public function export()
+    {
+        return Excel::download(new StudentsExport, 'students_09051733.xlsx');
     }
 }
