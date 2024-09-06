@@ -26,6 +26,7 @@
                     <th>mobile</th>
                     <th>phone</th>
                     <th>rank</th>
+                    <th>hobby</th>
                     <th>
                         oprate
                     </th>
@@ -45,6 +46,9 @@
                         <td>{{ $value['mobile'] }}</td>
                         <td>{{ $value->phoneRelation->phone }}</td>
                         <td class="my-rank">{{ $value['rank'] }}</td>
+                        <td>{{ $value['hobbies'] }}</td>
+                        
+
                         <td>
                             {{-- 方法一 --}}
                             {{-- href="http://localhost/students/1/edit"  --}}

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Student;
 use App\Models\Phone;
+use App\Models\Hobby;
 // use Illuminate\Support\Facades\DB;
 use App\Exports\StudentsExport;
 use Maatwebsite\Excel\Facades\Excel;
@@ -32,7 +33,7 @@ class StudentController extends Controller
         // $data = DB::table('students')
         //     ->get();
 
-        $data = Student::with('phoneRelation')->get();
+        $data = Student::with('phoneRelation')->with('hobbiesRelation')->get();
         // dd($data);
         // $data = Student::find(1)->phoneRelation->phone;
         // $data = Student::find(1)->phoneRelation->student_id;
@@ -44,8 +45,20 @@ class StudentController extends Controller
                 $rankText = 2;
             }
             $data[$key]['rank'] = $rankText;
+
+            $data[$key]['hobbies'] = "";
+            $tmpArr = [];
+            foreach ($data[$key]->hobbiesRelation as $key2 => $value2) {
+                array_push($tmpArr,$value2['hobby']);
+            }
+            // dd($tmpArr);
+             $data[$key]['hobbies'] = implode(",",$tmpArr);
+            // dd($data[$key]->hobbiesRelation);
         }
         // dd($data);
+
+        // $data[0]['hobbies'] = "php,js";
+        // $data[1]['hobbies'] = "php,laravel,html";
 
         return view('student.index', ['data' => $data]);
     }
