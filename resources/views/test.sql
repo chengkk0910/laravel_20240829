@@ -34,8 +34,16 @@ SELECT
     students.id,
     students.name,
     students.mobile,
-    phones.phone123
-
+    phones.phone
 FROM
     students
     INNER JOIN phones ON students.id = phones.student_id;
+
+SELECT
+    students.id,
+    students.name,
+    students.mobile,
+    hobbies.hobby
+FROM
+    students
+    INNER JOIN hobbies ON students.id = hobbies.student_id;

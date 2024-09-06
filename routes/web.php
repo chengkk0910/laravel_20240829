@@ -9,7 +9,7 @@ Route::get('/', function () {
     return redirect()->route('students.index');
 });
 
-Route::get('students_export', [StudentController::class, 'export']);
+Route::get('students_excel', [StudentController::class, 'excel'])->name('students.excel');
 
 Route::resource('students', StudentController::class);
 

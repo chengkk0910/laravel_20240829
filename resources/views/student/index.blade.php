@@ -16,6 +16,7 @@
         <h2>Bordered Table</h2>
         <p>The .table-bordered class adds borders on all sides of the table and the cells:</p>
         <div class="text-end">
+            <a class="btn btn-primary mb-3" href="{{ route('students.excel') }}">Excel</a>
             <a class="btn btn-success mb-3" href="{{ route('students.create') }}">add</a>
         </div>
         <table class="table table-bordered">

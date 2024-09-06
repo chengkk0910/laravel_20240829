@@ -173,8 +173,8 @@ class StudentController extends Controller
         return redirect()->route('students.index');
     }
 
-    public function export()
+    public function excel()
     {
-        return Excel::download(new StudentsExport, 'students_09051733.xlsx');
+        return Excel::download(new StudentsExport, 'students_09061333.xlsx');
     }
 }

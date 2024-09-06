@@ -12,6 +12,8 @@ class StudentsExport implements FromCollection
     */
     public function collection()
     {
-        return Student::all();
+        $data = Student::all();
+        dd($data);
+        return $data;
     }
 }
